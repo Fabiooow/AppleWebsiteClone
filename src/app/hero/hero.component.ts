@@ -45,7 +45,11 @@ export class HeroComponent implements AfterViewInit{
       duration: 2
     });
 
-
+    gsap.to("#cta", {
+      opacity: 1,
+      delay: 1,
+      y: -50
+    })
 
   }
 
