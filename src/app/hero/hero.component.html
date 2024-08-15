@@ -1,1 +1,11 @@
-<p>hero works!</p>
+<section #section (window:resize)="videoSelector()" class="w-full nav-heigth bg-black relative">
+  <div class="h-5/6 flex-center flex-col">
+    <p id="hero" class="hero-title">iPhone 15 Pro</p>
+    <div class="md:w-10/12 w-9/12">
+      <video #video class="pointer-events-none" autoPLay muted key="video" subtitles="ola" description="fdsaf">
+
+      </video>
+
+    </div>
+  </div>
+</section>
