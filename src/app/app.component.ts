@@ -2,11 +2,15 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeroComponent } from './hero/hero.component';
+import { HighlightsComponent } from './highlights/highlights.component'
+import { VideoCarouselComponent } from './video-carousel/video-carousel.component'
 
 let imports = [
   RouterOutlet,
   NavbarComponent,
-  HeroComponent
+  HeroComponent,
+  HighlightsComponent,
+  VideoCarouselComponent
 ];
 
 @Component({
