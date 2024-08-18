@@ -45,12 +45,6 @@ export class VideoCarouselComponent {
     },
     {
       id: 3,
-      textLists: ["All-new Action button.", "What will yours do?."],
-      videoPath: '/videos/hightlight-fourth.mp4',
-      videoDuration: 3.63,
-    },
-    {
-      id: 4,
       textLists: [
         "iPhone 15 Pro Max has the",
         "longest optical zoom in",
@@ -59,11 +53,17 @@ export class VideoCarouselComponent {
       videoPath: '/videos/hightlight-sec.mp4',
       videoDuration: 2,
     },
+    {
+      id: 4,
+      textLists: ["All-new Action button.", "What will yours do?."],
+      videoPath: '/videos/hightlight-fourth.mp4',
+      videoDuration: 3.63,
+    },
   ];
 
   gsapSetup(){
     gsap.to('#slider', {
-      x: -1420 * this.videoIndexNumber
+      x: -1450 * this.videoIndexNumber
     })
   }
 
@@ -74,9 +74,10 @@ export class VideoCarouselComponent {
   }
 
   loadMetaData(event: any, video: any, index:number){
-    this.videosMetaData.push(video);
+    this.videosMetaData[video.id] = video;
+    console.log(this.videosMetaData.length)
 
-    if(this.videosMetaData.length == 3){
+    if(this.videosMetaData.length == 4){
       this.resume();
     }
   }
@@ -140,7 +141,7 @@ export class VideoCarouselComponent {
       this.videosMetaData[this.videoIndexNumber].play();
       this.isPlaying = true;
       this.finished = false;
-      this.gsapSetup();
+      this.gsapSetup()
     }else{
       this.isPlaying = false;
       this.finished = true

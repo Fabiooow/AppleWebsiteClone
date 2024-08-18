@@ -2,8 +2,8 @@
   <div *ngFor="let i of hightlightsSlides; let in = index">
     <div id="slider" class="sm:pr-20 pr-10">
       <div class="video-carousel_container">
-        <div class="w-full h-full flex-center rounded-3xl overflow-hi flex bg-black">
-          <video #video id="video{{in}}" [playsInline]="true" preload="auto" muted (ended)="endedVideo()"
+        <div class="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
+          <video #video id="{{in}}" [playsInline]="true" preload="auto" muted (ended)="endedVideo()"
             (loadedmetadata)="loadMetaData($event, video, in)" (timeupdate)="timeUpdate($event, video, in)"
             src="{{i.videoPath}}">
           </video>
