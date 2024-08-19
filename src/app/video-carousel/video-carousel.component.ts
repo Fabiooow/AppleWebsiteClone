@@ -65,6 +65,19 @@ export class VideoCarouselComponent {
     gsap.to('#slider', {
       x: -1450 * this.videoIndexNumber
     })
+
+
+
+    gsap.to('#spanTop'+ this.videoIndexNumber,{
+      width: "60px",
+      backgroundColor: "#afafaf"
+    })
+
+
+
+
+
+
   }
 
   endedVideo(){
@@ -85,7 +98,11 @@ export class VideoCarouselComponent {
   timeUpdate(event: any, video:any, index:number){
     if(this.videosMetaData.length == 4){
       this.videoProgress = (video.currentTime / video.duration) * 100;
-      console.log(this.videoProgress)
+      gsap.to('#spanBottom' + this.videoIndexNumber, {
+        opacity : 1,
+        width: this.videoProgress + '%',
+        backgroundColor: 'white'
+      })
     }
   }
 
@@ -123,10 +140,11 @@ export class VideoCarouselComponent {
     }
 
     if(!this.finished){
-      this.resetVideo()
+      this.resetVideo();
+      this.resetBars();
     }
     this.videoIndexNumber = videoIndex;
-    this.resume()
+    this.resume();
   }
 
 
@@ -145,6 +163,7 @@ export class VideoCarouselComponent {
     }else{
       this.isPlaying = false;
       this.finished = true
+      this.resetBars();
     }
     this.getIcon()
   }
@@ -152,15 +171,29 @@ export class VideoCarouselComponent {
   restart(){
     this.videoIndexNumber = 0;
     this.resetVideo();
-    this.resume()
+    this.resetBars()
+    this.resume();
   }
 
   resetVideo(){
     this.videosMetaData[this.videoIndexNumber].currentTime = 0.0;
   }
 
+  resetBars(){
+    gsap.to('.spanProgres', {
+      width: "12px"
+    })
+
+    gsap.to('.spanBottom', {
+      width: "0px",
+      opacity: 0
+    })
+  }
+
   nextVideo(){
+    this.videoProgress = 0;
     this.videoIndexNumber++;
+    this.resetBars();
     this.resume();
   }
 

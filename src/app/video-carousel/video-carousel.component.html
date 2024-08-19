@@ -20,11 +20,10 @@
 
 <div class="relative flex-center mt-10">
   <div class="flex-center py-5 px-7 bg-gray-300 backdrop-blur rounded-full">
-    <div *ngFor="let i of hightlightsSlides; let in = index"
-      class="mx-2 w-3 h-3 bg-gray-200 rounded-full relative cursor-pointer">
-      <span (click)="goToVideo(in)"></span>
+    <div id="spanTop{{in}}" *ngFor="let i of hightlightsSlides; let in = index"
+      class="spanProgres mx-2 w-3 h-3 bg-gray-200 rounded-full relative cursor-pointer" (click)="goToVideo(in)">
 
-      <span class="absolute h-full w-full rounded-full" (click)="goToVideo(in)"></span>
+      <span id="spanBottom{{in}}" class="spanBottom absolute h-full w-full rounded-full"></span>
     </div>
 
   </div>
