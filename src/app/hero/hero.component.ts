@@ -1,15 +1,13 @@
 import { AfterViewChecked, AfterViewInit, Component, ViewChild } from '@angular/core';
 
-import { gsap } from 'gsap-trial';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-hero',
-  standalone: true,
-  imports: [],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
-export class HeroComponent implements AfterViewInit{
+export class HeroComponent implements AfterViewInit {
 
   @ViewChild('section') elementView: any;
 
@@ -17,7 +15,7 @@ export class HeroComponent implements AfterViewInit{
 
   public previousVideoPath: string = "";
 
-  constructor(){ }
+  constructor(){}
 
   ngAfterViewInit(): void {
     this.videoSelector()
@@ -52,5 +50,4 @@ export class HeroComponent implements AfterViewInit{
     })
 
   }
-
 }

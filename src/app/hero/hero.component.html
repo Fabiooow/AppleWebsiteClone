@@ -1,4 +1,5 @@
-<section #section (window:resize)="videoSelector()" class="w-full nav-heigth bg-black relative">
+<section #section (window:resize)="videoSelector()" class="w-full nav-heigth bg-black relative"
+  [style]="{'height': 'calc(100vh - 60px)'}">
   <div class="h-5/6 flex-center flex-col">
     <p id="hero" class="hero-title title">iPhone 15 Pro</p>
     <div class="md:w-10/12 w-9/12">

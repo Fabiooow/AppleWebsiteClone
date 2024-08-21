@@ -1,12 +1,9 @@
 import { Component , OnInit, ViewChild } from '@angular/core';
-import { HightlightSlide } from '../hightlight-slide'
-import { CommonModule } from '@angular/common';
-import { gsap } from 'gsap-trial'
+import { HighlightSlideModel } from '../models/highlight-slide.model';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-video-carousel',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './video-carousel.component.html',
   styleUrl: './video-carousel.component.css'
 })
@@ -26,7 +23,7 @@ export class VideoCarouselComponent {
 
   finished: boolean = false;
 
-  hightlightsSlides: HightlightSlide[] = [
+  hightlightsSlides: HighlightSlideModel[] = [
     {
       id: 1,
       textLists: [
@@ -63,7 +60,8 @@ export class VideoCarouselComponent {
 
   gsapSetup(){
     gsap.to('#slider', {
-      x: -1450 * this.videoIndexNumber
+      //x: -1450 * this.videoIndexNumber
+      transform: `translateX(${-100 * this.videoIndexNumber}%)`,
     })
 
 
@@ -196,7 +194,5 @@ export class VideoCarouselComponent {
     this.resetBars();
     this.resume();
   }
-
-
 
 }

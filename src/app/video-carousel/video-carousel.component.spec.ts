@@ -8,7 +8,7 @@ describe('VideoCarouselComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VideoCarouselComponent]
+      declarations: [VideoCarouselComponent]
     })
     .compileComponents();
 

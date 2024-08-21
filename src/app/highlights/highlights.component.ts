@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { gsap } from 'gsap-trial'
-import { VideoCarouselComponent } from '../video-carousel/video-carousel.component'
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-highlights',
-  standalone: true,
-  imports: [ VideoCarouselComponent ],
   templateUrl: './highlights.component.html',
   styleUrl: './highlights.component.css'
 })
-export class HighlightsComponent implements OnInit{
+export class HighlightsComponent implements OnInit {
 
   ngOnInit(){
     this.setupGsap();
@@ -30,6 +27,5 @@ export class HighlightsComponent implements OnInit{
       stagger: 0.25
     });
   }
-
 
 }
